@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProjectGuid>{CDAD47AF-15AB-4B4A-AEA6-CD938C229B49}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>pianocam</RootNamespace>
+    <AssemblyName>pianocam</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="gtk-sharp, Version=2.4.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="gdk-sharp, Version=2.4.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="glib-sharp, Version=2.4.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="glade-sharp, Version=2.4.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="pango-sharp, Version=2.4.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="atk-sharp, Version=2.4.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Mono.Posix" />
+    <Reference Include="NAudio">
+      <HintPath>packages\NAudio.1.8.4\lib\net35\NAudio.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="Mono.Cairo" />
+    <Reference Include="libstetic">
+      <HintPath>..\..\..\..\..\Applications\Visual Studio.app\Contents\Resources\lib\monodevelop\AddIns\MonoDevelop.GtkCore\libstetic.dll</HintPath>
+    </Reference>
+    <Reference Include="MathNet.Numerics">
+      <HintPath>packages\MathNet.Numerics.4.5.1\lib\net40\MathNet.Numerics.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Runtime.Serialization" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="gtk-gui\gui.stetic">
+      <LogicalName>gui.stetic</LogicalName>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="gtk-gui\generated.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SheetMusic.cs" />
+    <Compile Include="LoadWin.cs" />
+    <Compile Include="gtk-gui\pianocam.LoadWin.cs" />
+    <Compile Include="EditorSession.cs" />
+    <Compile Include="MidiPlayer.cs" />
+    <Compile Include="Configs.cs" />
+    <Compile Include="KeyboardWidget.cs" />
+    <Compile Include="gtk-gui\pianocam.KeyboardWidget.cs" />
+    <Compile Include="SequenceWindow.cs" />
+    <Compile Include="gtk-gui\pianocam.SequenceWindow.cs" />
+    <Compile Include="TimelineViewWidget.cs" />
+    <Compile Include="gtk-gui\pianocam.TimelineViewWidget.cs" />
+    <Compile Include="RobotModel.cs" />
+    <Compile Include="ToolboxWindow.cs" />
+    <Compile Include="gtk-gui\pianocam.ToolboxWindow.cs" />
+    <Compile Include="ToolsWindow.cs" />
+    <Compile Include="gtk-gui\pianocam.ToolsWindow.cs" />
+    <Compile Include="Interpolator.cs" />
+    <Compile Include="ArduinoSession.cs" />
+    <Compile Include="UndoHelper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ProjectExtensions>
+    <MonoDevelop>
+      <Properties>
+        <Policies>
+          <TextStylePolicy TabWidth="4" IndentWidth="4" RemoveTrailingWhitespace="True" NoTabsAfterNonTabs="False" EolMarker="Native" FileWidth="80" TabsToSpaces="True" scope="application/config+xml" />
+          <XmlFormattingPolicy scope="application/config+xml">
+            <DefaultFormat OmitXmlDeclaration="False" IndentContent="True" AttributesInNewLine="False" MaxAttributesPerLine="10" WrapAttributes="False" AlignAttributes="False" AlignAttributeValues="False" QuoteChar="&quot;" SpacesBeforeAssignment="0" SpacesAfterAssignment="0" EmptyLinesBeforeStart="0" EmptyLinesAfterStart="0" EmptyLinesBeforeEnd="0" EmptyLinesAfterEnd="0" />
+          </XmlFormattingPolicy>
+          <TextStylePolicy inheritsSet="null" scope="application/xml" />
+          <XmlFormattingPolicy scope="application/xml">
+            <DefaultFormat OmitXmlDeclaration="False" IndentContent="True" AttributesInNewLine="False" MaxAttributesPerLine="10" WrapAttributes="False" AlignAttributes="False" AlignAttributeValues="False" QuoteChar="&quot;" SpacesBeforeAssignment="0" SpacesAfterAssignment="0" EmptyLinesBeforeStart="0" EmptyLinesAfterStart="0" EmptyLinesBeforeEnd="0" EmptyLinesAfterEnd="0" />
+          </XmlFormattingPolicy>
+        </Policies>
+      </Properties>
+    </MonoDevelop>
+  </ProjectExtensions>
+</Project>
